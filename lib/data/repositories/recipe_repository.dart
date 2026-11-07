@@ -7,7 +7,7 @@ class RecipeRepository {
 
   Future<List<RecipeModel>> fetchRecipes() async {
     try {
-      final response = await _dio.get('https://dummyjson.com/recipes');
+      final response = await _dio.get('https://dummyjson.com/recipes?limit=0');
       final List rawRecipes = response.data['recipes'];
       return rawRecipes.map((json) => RecipeModel.fromJson(json)).toList();
     } catch (e) {
